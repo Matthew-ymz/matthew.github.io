@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨明哲(Matthew) - 学者主页</title>
+    <style>
+        /* 暗黑主题 */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #3498db;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .section {
+            background: #1e1e1e;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #2c2c2c;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .paper-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .paper-item {
+            margin: 15px 0;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background: #2d2d2d;
+            transition: all 0.3s ease;
+        }
+
+        .paper-item:hover {
+            background: #333333;
+            border-left-width: 6px;
+        }
+        /* ▲▲▲ 修改部分 - 新增中文解读链接颜色 ▲▲▲ */
+        .pdf-link {
+            color: #FFA726;  /* 改为橙色 */
+            margin-left: 15px;
+        }
+        .pdf-link:hover {
+            color: #FFB74D;
+        }
+
+        /* ▲▲▲ 修改部分 - 新增摘要和图片样式 ▲▲▲ */
+        .paper-abstract {
+            background: #252525;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 6px;
+            border-left: 3px solid #3498db;
+            font-size: 0.95em;
+        }
+
+        .paper-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 15px 0;
+            border-radius: 6px;
+            border: 1px solid #404040;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .doi-link {
+            color: #5dade2;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .doi-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: #5dade2;
+            transition: width 0.3s;
+        }
+
+        .doi-link:hover::after {
+            width: 100%;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+            .section {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 正文内容保持不变 -->
+    <header class="header">
+        <img src="images/myphoto.jpg" alt="yangmingzhe" class="profile-img">
+        <h1>杨明哲 硕士</h1>
+        <p>北京师范大学系统科学学院</p>
+    </header>
+
+    <section class="section">
+        <h2>📖 研究领域</h2>
+        <p>Complex System, Causal Emergence, Information Science</p>
+    </section>
+
+    <section class="section">
+        <h2>📚 发表论文</h2>
+        <ul class="paper-list">
+            <li class="paper-item">
+                <strong>2025</strong><br>
+                Finding emergence in data by maximizing effective information,<br>
+                <em>National Science Review</em>, 2025.<br>
+                <img src="images/nsr_nisp.jpg" alt="论文图表" class="paper-image">
+                <div class="paper-abstract">
+                    Quantifying emergence and modeling emergent dynamics in a data-driven manner for complex dynamical systems is challenging due to the fact that emergent behaviors cannot be directly captured by micro-level observational data. Thus, it is crucial to develop a framework to identify emergent phenomena and capture emergent dynamics at the macro-level using available data. Inspired by the theory of causal emergence (CE), this paper introduces a machine learning framework to learn macro-dynamics in an emergent latent space and quantify the degree of CE. The framework maximizes effective information, resulting in a macro-dynamics model with enhanced causal effects. Experimental results on simulated and real data demonstrate the effectiveness of the proposed framework. It quantifies degrees of CE effectively under various conditions and reveals distinct influences of different noise types. It can learn a one-dimensional coarse-grained macro-state from functional magnetic resonance imaging data to represent complex neural activities during movie clip viewing. Furthermore, improved generalization to different test environments is observed across all simulation data.
+                </div>
+                <a href="https://doi.org/10.1093/nsr/nwae279" class="doi-link">Paper Link</a>
+                <a href="https://mp.weixin.qq.com/s/VhcUtrypPH7JuQjK5FGl3w" class="pdf-link">中文解读</a>
+            </li>
+            <li class="paper-item">
+                <strong>2024</strong><br>
+                Emergence and Causality in Complex Systems: A Survey of Causal Emergence and Related Quantitative Studies,<br>
+                <em>Entropy</em>, 2024.<br>
+                <img src="images/entropy_review.jpg" alt="论文图表" class="paper-image">
+                <div class="paper-abstract">
+                    Emergence and causality are two fundamental concepts for understanding complex systems. They are interconnected. On one hand, emergence refers to the phenomenon where macroscopic properties cannot be solely attributed to the cause of individual properties. On the other hand, causality can exhibit emergence, meaning that new causal laws may arise as we increase the level of abstraction. Causal emergence (CE) theory aims to bridge these two concepts and even employs measures of causality to quantify emergence. This paper provides a comprehensive review of recent advancements in quantitative theories and applications of CE. It focuses on two primary challenges: quantifying CE and identifying it from data. The latter task requires the integration of machine learning and neural network techniques, establishing a significant link between causal emergence and machine learning. We highlight two problem categories: CE with machine learning and CE for machine learning, both of which emphasize the crucial role of effective information (EI) as a measure of causal emergence. The final section of this review explores potential applications and provides insights into future perspectives.                </div>
+                <a href="https://doi.org/10.3390/e26020108" class="doi-link">Paper Link</a>
+                <a href="https://mp.weixin.qq.com/s/U3Ccf6PUpZm5Tz1K4sfICw" class="pdf-link">中文解读</a>
+            </li>
+            <li class="paper-item">
+                <strong>2025</strong><br>
+                Dynamical Reversibility and a New Theory of Causal Emergence based on SVD,<br>
+                <em>npj Complexity</em>, 2025.<br>
+                <img src="images/npj_svd.jpg" alt="论文图表" class="paper-image">
+                <div class="paper-abstract">
+                    The theory of causal emergence (CE) with effective information (EI) posits that complex systems can exhibit CE, where macro-dynamics show stronger causal effects than micro-dynamics. A key challenge of this theory is its dependence on coarse-graining method. In this paper, we introduce a fresh concept of approximate dynamical reversibility derived from the singular value decomposition(SVD) of the Markov chain and establish a novel framework for CE based on this. We find that the essence of CE lies in the presence of redundancy, represented by irreversible and correlated information pathways within the Markov dynamics. Therefore, CE can be quantified as the potential maximal efficiency increase for dynamical reversibility or information transmission. We also demonstrate a strong correlation between the approximate dynamical reversibility and EI, establishing an equivalence between the SVD and EI maximization frameworks for quantifying CE, supported by theoretical insights and numerical examples from Boolean networks, cellular automata, and complex networks. Importantly, our SVD-based CE framework is independent of specific coarse-graining techniques and effectively captures the fundamental characteristics of the dynamics.                
+                <a href="https://www.nature.com/articles/s44260-025-00028-0" class="doi-link">Paper Link</a>
+                <a href="https://mp.weixin.qq.com/s/r46w4_XcdIVwygqq_zfofg" class="pdf-link">中文解读</a>
+            </li>
+            <li class="paper-item">
+                <strong>2024</strong><br>
+                Emergence and Causality in Complex Systems: A Survey of Causal Emergence and Related Quantitative Studies,<br>
+                <em>Entropy</em>, 2024.<br>
+                <img src="images/entropy_review.jpg" alt="论文图表" class="paper-image">
+                <div class="paper-abstract">
+                    Emergence and causality are two fundamental concepts for understanding complex systems. They are interconnected. On one hand, emergence refers to the phenomenon where macroscopic properties cannot be solely attributed to the cause of individual properties. On the other hand, causality can exhibit emergence, meaning that new causal laws may arise as we increase the level of abstraction. Causal emergence (CE) theory aims to bridge these two concepts and even employs measures of causality to quantify emergence. This paper provides a comprehensive review of recent advancements in quantitative theories and applications of CE. It focuses on two primary challenges: quantifying CE and identifying it from data. The latter task requires the integration of machine learning and neural network techniques, establishing a significant link between causal emergence and machine learning. We highlight two problem categories: CE with machine learning and CE for machine learning, both of which emphasize the crucial role of effective information (EI) as a measure of causal emergence. The final section of this review explores potential applications and provides insights into future perspectives.                </div>
+                <a href="https://doi.org/10.3390/e26020108" class="doi-link">Paper Link</a>
+                <a href="https://mp.weixin.qq.com/s/U3Ccf6PUpZm5Tz1K4sfICw" class="pdf-link">中文解读</a>
+            </li>
+            <li class="paper-item">
+                <strong>2024</strong><br>
+                Emergence and Causality in Complex Systems: A Survey of Causal Emergence and Related Quantitative Studies,<br>
+                <em>Entropy</em>, 2024.<br>
+                <img src="images/entropy_review.jpg" alt="论文图表" class="paper-image">
+                <div class="paper-abstract">
+                    Emergence and causality are two fundamental concepts for understanding complex systems. They are interconnected. On one hand, emergence refers to the phenomenon where macroscopic properties cannot be solely attributed to the cause of individual properties. On the other hand, causality can exhibit emergence, meaning that new causal laws may arise as we increase the level of abstraction. Causal emergence (CE) theory aims to bridge these two concepts and even employs measures of causality to quantify emergence. This paper provides a comprehensive review of recent advancements in quantitative theories and applications of CE. It focuses on two primary challenges: quantifying CE and identifying it from data. The latter task requires the integration of machine learning and neural network techniques, establishing a significant link between causal emergence and machine learning. We highlight two problem categories: CE with machine learning and CE for machine learning, both of which emphasize the crucial role of effective information (EI) as a measure of causal emergence. The final section of this review explores potential applications and provides insights into future perspectives.                </div>
+                <a href="https://doi.org/10.3390/e26020108" class="doi-link">Paper Link</a>
+                <a href="https://mp.weixin.qq.com/s/U3Ccf6PUpZm5Tz1K4sfICw" class="pdf-link">中文解读</a>
+            </li>
+            <!-- 添加更多论文 -->
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>📧 联系方式</h2>
+        <p>e-mail：ymp66393866@163.com; ymz205042@gmail.com</p>
+        <p>Google Scholar: 
+            <a href="https://scholar.google.com/citations?hl=zh-CN&user=U5Bc5M4AAAAJ" class="doi-link">个人主页</a>
+        </p>
+    </section>
+
+    <script>
+        // 增强交互效果
+        document.querySelectorAll('.paper-item').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.style.transform = 'translateX(10px)';
+            });
+            item.addEventListener('mouseout', () => {
+                item.style.transform = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
+
