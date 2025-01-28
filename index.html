@@ -122,6 +122,44 @@
                 padding: 18px;
             }
         }
+        /* ▲▲▲ 新增视频样式 ▲▲▲ */
+        .video-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .video-item {
+            margin: 25px 0;
+            padding: 20px;
+            background: #2d2d2d;
+            border-radius: 8px;
+            border-left: 4px solid #5dade2;
+        }
+
+        .science-video {
+            width: 100%;
+            max-width: 300px;
+            margin: 15px 0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .video-description {
+            background: #252525;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+        .science-video {
+            max-width: 100%;
+            height: 200px;  /* 移动端高度进一步缩小 */
+        }
+        }
+
     </style>
 </head>
 <body>
@@ -138,11 +176,12 @@
     </section>
 
     <section class="section">
-        <h2>📚 发表论文</h2>
+        <h2>📚 学术论文</h2>
         <ul class="paper-list">
             <li class="paper-item">
                 <strong>2025</strong><br>
                 Finding emergence in data by maximizing effective information,<br>
+                <strong>Mingzhe Yang</strong>, Zhipeng Wang, Kaiwei Liu, Yingqi Rong, Bing Yuan, Jiang Zhang<br>
                 <em>National Science Review</em>, 2025.<br>
                 <img src="images/nsr_nisp.jpg" alt="论文图表" class="paper-image">
                 <div class="paper-abstract">
@@ -154,46 +193,84 @@
             <li class="paper-item">
                 <strong>2024</strong><br>
                 Emergence and Causality in Complex Systems: A Survey of Causal Emergence and Related Quantitative Studies,<br>
+                Bing Yuan, Jiang Zhang, Aobo Lyu, Jiayun Wu, Zhipeng Wang, <strong>Mingzhe Yang</strong>, Kaiwei Liu, Muyun Mou, Peng Cui <br>
                 <em>Entropy</em>, 2024.<br>
                 <img src="images/entropy_review.jpg" alt="论文图表" class="paper-image">
                 <div class="paper-abstract">
-                    Emergence and causality are two fundamental concepts for understanding complex systems. They are interconnected. On one hand, emergence refers to the phenomenon where macroscopic properties cannot be solely attributed to the cause of individual properties. On the other hand, causality can exhibit emergence, meaning that new causal laws may arise as we increase the level of abstraction. Causal emergence (CE) theory aims to bridge these two concepts and even employs measures of causality to quantify emergence. This paper provides a comprehensive review of recent advancements in quantitative theories and applications of CE. It focuses on two primary challenges: quantifying CE and identifying it from data. The latter task requires the integration of machine learning and neural network techniques, establishing a significant link between causal emergence and machine learning. We highlight two problem categories: CE with machine learning and CE for machine learning, both of which emphasize the crucial role of effective information (EI) as a measure of causal emergence. The final section of this review explores potential applications and provides insights into future perspectives.                </div>
+                    Emergence and causality are two fundamental concepts for understanding complex systems. They are interconnected. On one hand, emergence refers to the phenomenon where macroscopic properties cannot be solely attributed to the cause of individual properties. On the other hand, causality can exhibit emergence, meaning that new causal laws may arise as we increase the level of abstraction. Causal emergence (CE) theory aims to bridge these two concepts and even employs measures of causality to quantify emergence. This paper provides a comprehensive review of recent advancements in quantitative theories and applications of CE. It focuses on two primary challenges: quantifying CE and identifying it from data. The latter task requires the integration of machine learning and neural network techniques, establishing a significant link between causal emergence and machine learning. We highlight two problem categories: CE with machine learning and CE for machine learning, both of which emphasize the crucial role of effective information (EI) as a measure of causal emergence. The final section of this review explores potential applications and provides insights into future perspectives.               
+                </div>
                 <a href="https://doi.org/10.3390/e26020108" class="doi-link">Paper Link</a>
                 <a href="https://mp.weixin.qq.com/s/U3Ccf6PUpZm5Tz1K4sfICw" class="pdf-link">中文解读</a>
             </li>
             <li class="paper-item">
                 <strong>2025</strong><br>
                 Dynamical Reversibility and a New Theory of Causal Emergence based on SVD,<br>
+                Jiang Zhang, Ruyi Tao, Keng Hou Leong, <strong>Mingzhe Yang</strong>, Bing Yuan<br>
                 <em>npj Complexity</em>, 2025.<br>
                 <img src="images/npj_svd.jpg" alt="论文图表" class="paper-image">
                 <div class="paper-abstract">
                     The theory of causal emergence (CE) with effective information (EI) posits that complex systems can exhibit CE, where macro-dynamics show stronger causal effects than micro-dynamics. A key challenge of this theory is its dependence on coarse-graining method. In this paper, we introduce a fresh concept of approximate dynamical reversibility derived from the singular value decomposition(SVD) of the Markov chain and establish a novel framework for CE based on this. We find that the essence of CE lies in the presence of redundancy, represented by irreversible and correlated information pathways within the Markov dynamics. Therefore, CE can be quantified as the potential maximal efficiency increase for dynamical reversibility or information transmission. We also demonstrate a strong correlation between the approximate dynamical reversibility and EI, establishing an equivalence between the SVD and EI maximization frameworks for quantifying CE, supported by theoretical insights and numerical examples from Boolean networks, cellular automata, and complex networks. Importantly, our SVD-based CE framework is independent of specific coarse-graining techniques and effectively captures the fundamental characteristics of the dynamics.                
+                </div>
                 <a href="https://www.nature.com/articles/s44260-025-00028-0" class="doi-link">Paper Link</a>
                 <a href="https://mp.weixin.qq.com/s/r46w4_XcdIVwygqq_zfofg" class="pdf-link">中文解读</a>
             </li>
             <li class="paper-item">
                 <strong>2024</strong><br>
-                Emergence and Causality in Complex Systems: A Survey of Causal Emergence and Related Quantitative Studies,<br>
-                <em>Entropy</em>, 2024.<br>
-                <img src="images/entropy_review.jpg" alt="论文图表" class="paper-image">
+                Stability analysis of HCV dynamic model with saturation incidence, cellular immunity and interferon effect in intrahepatic and extrahepatic tissues,<br>
+                Bin Yu, Jin Shi, Zeyu Xue, <strong>Mingzhe Yang</strong>, Xue Yang, Yongmei Su <br>
+                <em>Mathematics and Computers in Simulation</em>, 2024.<br>
+                <img src="images/HCV.jpg" alt="论文图表" class="paper-image">
                 <div class="paper-abstract">
-                    Emergence and causality are two fundamental concepts for understanding complex systems. They are interconnected. On one hand, emergence refers to the phenomenon where macroscopic properties cannot be solely attributed to the cause of individual properties. On the other hand, causality can exhibit emergence, meaning that new causal laws may arise as we increase the level of abstraction. Causal emergence (CE) theory aims to bridge these two concepts and even employs measures of causality to quantify emergence. This paper provides a comprehensive review of recent advancements in quantitative theories and applications of CE. It focuses on two primary challenges: quantifying CE and identifying it from data. The latter task requires the integration of machine learning and neural network techniques, establishing a significant link between causal emergence and machine learning. We highlight two problem categories: CE with machine learning and CE for machine learning, both of which emphasize the crucial role of effective information (EI) as a measure of causal emergence. The final section of this review explores potential applications and provides insights into future perspectives.                </div>
-                <a href="https://doi.org/10.3390/e26020108" class="doi-link">Paper Link</a>
-                <a href="https://mp.weixin.qq.com/s/U3Ccf6PUpZm5Tz1K4sfICw" class="pdf-link">中文解读</a>
+                    An HCV model with saturation incidence and cellular immunity is constructed and analyzed. The model takes account of both intrahepatic and extrahepatic tissues and the effect of antiviral drugs especially the interferon. The basic reproduction number R 01 and CTL immune reproduction number R 02 are calculated, respectively. The existence of three equilibria, namely infection-free, immune response-free, infection-immune coexistence equilibrium is analyzed with a novel method. Stability analysis is also given with corresponding reproduction number, and the results show that when R 01 < 1, there are no virus and immune response existed in the end; when R 02 < 1 < R 01, the virus survives, but immune response gradually disappears; when R 02 > 1, the system will be globally stable with both virus and immune response existing. Numerical analysis is also given which is consistent with the theoretical analysis.                
+                </div>
+                <a href="https://doi.org/10.1016/j.matcom.2023.09.017" class="doi-link">Paper Link</a>
+                
             </li>
             <li class="paper-item">
-                <strong>2024</strong><br>
-                Emergence and Causality in Complex Systems: A Survey of Causal Emergence and Related Quantitative Studies,<br>
-                <em>Entropy</em>, 2024.<br>
-                <img src="images/entropy_review.jpg" alt="论文图表" class="paper-image">
+                <strong>2023</strong><br>
+                System Information Decomposition,<br>
+                Aobo Lyu, Bing Yuan, Ou Deng, <strong>Mingzhe Yang</strong>, Jiang Zhang <br>
+                <em>Arxiv</em>, 2023.<br>
+                <img src="images/SID.jpg" alt="论文图表" class="paper-image">
                 <div class="paper-abstract">
-                    Emergence and causality are two fundamental concepts for understanding complex systems. They are interconnected. On one hand, emergence refers to the phenomenon where macroscopic properties cannot be solely attributed to the cause of individual properties. On the other hand, causality can exhibit emergence, meaning that new causal laws may arise as we increase the level of abstraction. Causal emergence (CE) theory aims to bridge these two concepts and even employs measures of causality to quantify emergence. This paper provides a comprehensive review of recent advancements in quantitative theories and applications of CE. It focuses on two primary challenges: quantifying CE and identifying it from data. The latter task requires the integration of machine learning and neural network techniques, establishing a significant link between causal emergence and machine learning. We highlight two problem categories: CE with machine learning and CE for machine learning, both of which emphasize the crucial role of effective information (EI) as a measure of causal emergence. The final section of this review explores potential applications and provides insights into future perspectives.                </div>
-                <a href="https://doi.org/10.3390/e26020108" class="doi-link">Paper Link</a>
-                <a href="https://mp.weixin.qq.com/s/U3Ccf6PUpZm5Tz1K4sfICw" class="pdf-link">中文解读</a>
+                    To characterize the complex higher-order interactions among variables within a system, this study introduces a novel framework, termed System Information Decomposition (SID), aimed at decomposing the information entropy of variables into information atoms based on their interrelations. Diverging from the established Partial Information Decomposition (PID) framework, which predominantly concentrates on the directional interactions stemming from an array of source variables to a single target variable, SID adopts a holistic approach, scrutinizing the interactions across all variables within the system. Specifically, we proved all the information atoms are symmetric, which means the disentanglement of unique, redundant, and synergistic information from any specific target variable. Hence, our proposed SID framework can capture the symmetric pairwise and higher-order relationships among variables. This advance positions SID as a promising framework with the potential to foster a deeper understanding of higher-order relationships within complex systems across disciplines.                
+                </div>
+                <a href="https://arxiv.org/abs/2306.08288" class="doi-link">Paper Link</a>
+                
             </li>
             <!-- 添加更多论文 -->
         </ul>
     </section>
+    <!-- 在学术论文section之后添加视频栏目 -->
+    <section class="section">  <!-- ▼▼▼ 新增视频栏目 ▼▼▼ -->
+        <h2>🎥 科普视频</h2>
+        <ul class="video-list">
+            <li class="video-item">
+                <h3>什么是涌现</h3>
+                <video class="science-video" controls>
+                    <source src="images/emergence.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放
+                </video>
+                <div class="video-description">
+                    本视频是对涌现这个概念的科普视频。
+                </div>
+                <a href="https://mp.weixin.qq.com/s/vMHpNBNQ2Q1QalubSdVvnw" class="doi-link">文章链接</a>
+            </li>
+            
+            <li class="video-item">
+                <h3>什么是混沌边缘</h3>
+                <video class="science-video" controls>
+                    <source src="images/edgeofchaos.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放
+                </video>
+                <div class="video-description">
+                    本视频是对混沌边缘概念的科普介绍。
+                </div>
+                <a href="https://mp.weixin.qq.com/s/d34rRHXTffBa1_yjWqIfxA" class="doi-link">文章链接</a>
+            </li>
+        </ul>
+    </section>
+
 
     <section class="section">
         <h2>📧 联系方式</h2>
