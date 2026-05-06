@@ -326,7 +326,8 @@
             border-left: 3px solid var(--blue);
         }
 
-        .science-video {
+        .video-cover-link {
+            position: relative;
             width: 100%;
             max-width: 520px;
             display: block;
@@ -334,6 +335,41 @@
             border-radius: var(--radius);
             overflow: hidden;
             background: #111111;
+            border: 1px solid var(--line);
+        }
+
+        .video-cover-link:hover {
+            border-color: var(--line-strong);
+            text-decoration: none;
+        }
+
+        .video-cover {
+            display: block;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.25s ease;
+        }
+
+        .video-cover-link:hover .video-cover {
+            transform: scale(1.02);
+        }
+
+        .video-cover-action {
+            position: absolute;
+            left: 14px;
+            bottom: 14px;
+            display: inline-flex;
+            align-items: center;
+            min-height: 34px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(16, 18, 20, 0.82);
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 650;
+            backdrop-filter: blur(8px);
         }
 
         .video-description {
@@ -428,7 +464,7 @@
                 font-size: 1.04rem;
             }
 
-            .science-video,
+            .video-cover-link,
             .paper-image {
                 max-width: 100%;
             }
@@ -613,17 +649,17 @@
         <ul class="video-list">
             <li class="video-item">
                 <a href="https://mp.weixin.qq.com/s/vMHpNBNQ2Q1QalubSdVvnw" class="doi-link">什么是涌现 / What is Emergence</a>
-                <video class="science-video" controls preload="metadata">
-                    <source src="images/emergence.mp4" type="video/mp4">
-                    您的浏览器不支持 HTML5 视频播放。
-                </video>
+                <a href="https://mp.weixin.qq.com/s/vMHpNBNQ2Q1QalubSdVvnw" class="video-cover-link" target="_blank" rel="noopener">
+                    <img src="images/emergence-cover.png" alt="什么是涌现视频封面" class="video-cover">
+                    <span class="video-cover-action">打开视频</span>
+                </a>
             </li>
             <li class="video-item">
                 <a href="https://mp.weixin.qq.com/s/d34rRHXTffBa1_yjWqIfxA" class="doi-link">什么是混沌边缘 / Edge of Chaos</a>
-                <video class="science-video" controls preload="metadata">
-                    <source src="images/edgeofchaos.mp4" type="video/mp4">
-                    您的浏览器不支持 HTML5 视频播放。
-                </video>
+                <a href="https://mp.weixin.qq.com/s/d34rRHXTffBa1_yjWqIfxA" class="video-cover-link" target="_blank" rel="noopener">
+                    <img src="images/edgeofchaos-cover.png" alt="什么是混沌边缘视频封面" class="video-cover">
+                    <span class="video-cover-action">打开视频</span>
+                </a>
             </li>
             <li class="video-item">
                 <a href="https://weixin.qq.com/sph/AiYXCF5Ta" class="doi-link">机器观察者识别涌现 / Recognizing Emergence with Machine Observers(NIS+)</a>
