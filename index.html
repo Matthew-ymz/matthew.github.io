@@ -15,19 +15,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>杨明哲(Matthew) Yang Mingzhe - 学者主页 Academic Homepage</title>
     <style>
-        /* 暗黑主题 */
-        body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        line-height: 1.6;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #121212;
-        color: #e0e0e0;
-        position: relative; /* 新增定位 */
+        :root {
+            color-scheme: dark;
+            --bg: #101214;
+            --panel: rgba(24, 27, 31, 0.88);
+            --panel-strong: #1b1f24;
+            --panel-soft: #22272e;
+            --line: rgba(255, 255, 255, 0.1);
+            --line-strong: rgba(93, 173, 226, 0.4);
+            --text: #f1f4f8;
+            --muted: #b8c1cc;
+            --subtle: #8693a0;
+            --blue: #5dade2;
+            --blue-strong: #78c2f3;
+            --amber: #ffb454;
+            --green: #9ad59d;
+            --radius: 8px;
         }
 
-        /* ▲▲▲ 新增背景图片样式 ▲▲▲ */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, "Segoe UI", "Noto Sans SC", Arial, sans-serif;
+            line-height: 1.65;
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 40px 24px 56px;
+            background: var(--bg);
+            color: var(--text);
+            position: relative;
+        }
+
         body::before {
             content: '';
             position: fixed;
@@ -35,100 +59,218 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/background.jpg'); /* 使用已有论文图片 */
+            background-image:
+                linear-gradient(180deg, rgba(16, 18, 20, 0.2), rgba(16, 18, 20, 0.88)),
+                url('images/background.jpg');
             background-size: cover;
             background-position: center;
-            opacity: 0.15; /* 透明度设置为8% */
+            opacity: 0.18;
             z-index: -1;
-            filter: grayscale(80%) blur(1px); /* 增加灰度化和模糊效果 */
+            filter: grayscale(90%) blur(1px);
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--blue-strong);
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
         .header {
-            text-align: center;
-            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 180px minmax(0, 1fr);
+            gap: 34px;
+            align-items: center;
+            min-height: 360px;
+            padding: 36px 0 42px;
+            border-bottom: 1px solid var(--line);
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 164px;
+            height: 164px;
             border-radius: 50%;
-            border: 3px solid #3498db;
-            box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
-        }
-        /* ▲▲▲ 新增论文标题链接样式 ▲▲▲ */
-        .paper-title-link {
-            font-size: 1.25em;
-            color: #5dade2;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        .paper-title-link:hover {
-            color: #7fb3d5;
-            text-decoration: underline;
-        }
-        .section {
-            background: rgba(30, 30, 30, 0.95);
-            background: #1e1e1e;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 8px;
-            border: 1px solid #2c2c2c;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease;
+            border: 2px solid var(--blue);
+            box-shadow: 0 18px 50px rgba(93, 173, 226, 0.18);
+            object-fit: cover;
         }
 
-        .section:hover {
-            transform: translateY(-3px);
+        .eyebrow {
+            margin: 0 0 12px;
+            color: var(--blue-strong);
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.05rem, 4.2vw, 3.7rem);
+            line-height: 1.05;
+            letter-spacing: 0;
+        }
+
+        .name-en {
+            display: block;
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: clamp(1.28rem, 2.45vw, 1.92rem);
+            font-weight: 650;
+        }
+
+        .intro {
+            max-width: 680px;
+            margin: 22px 0 0;
+            color: var(--muted);
+            font-size: 1.04rem;
+        }
+
+        .affiliation {
+            margin: 18px 0 0;
+            color: var(--text);
+        }
+
+        .affiliation p {
+            margin: 4px 0;
+        }
+
+        .quick-links,
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .quick-link,
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 34px;
+            padding: 6px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.035);
+            color: var(--text);
+            font-size: 0.92rem;
+        }
+
+        .quick-link:hover,
+        .tag:hover {
+            border-color: var(--line-strong);
+            background: rgba(93, 173, 226, 0.09);
+            text-decoration: none;
+        }
+
+        .paper-title-link {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.12rem;
+            font-weight: 700;
+            line-height: 1.35;
+            transition: color 0.3s ease;
+        }
+
+        .paper-title-link:hover {
+            color: var(--blue-strong);
+        }
+
+        .section {
+            background: var(--panel);
+            padding: 30px;
+            margin: 24px 0;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.24);
+            backdrop-filter: blur(12px);
+        }
+
+        .section h2 {
+            margin: 0 0 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--line);
+            font-size: 1.35rem;
+            line-height: 1.25;
+        }
+
+        .section h2 .section-subtitle {
+            display: block;
+            margin-top: 4px;
+            color: var(--subtle);
+            font-size: 0.86rem;
+            font-weight: 500;
         }
 
         .paper-list {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .paper-item {
-            margin: 15px 0;
-            padding: 15px;
-            border-left: 4px solid #3498db;
-            background: #2d2d2d;
+            margin: 14px 0;
+            padding: 20px 20px 18px;
+            border-left: 3px solid var(--blue);
+            border-radius: var(--radius);
+            background: var(--panel-soft);
             transition: all 0.3s ease;
         }
 
         .paper-item:hover {
-            background: #333333;
-            border-left-width: 6px;
-        }
-        /* ▲▲▲ 修改部分 - 新增中文解读链接颜色 ▲▲▲ */
-        .pdf-link {
-            color: #FFA726;  /* 改为橙色 */
-            margin-left: 15px;
-        }
-        .pdf-link:hover {
-            color: #FFB74D;
+            background: #262d35;
+            border-left-color: var(--blue-strong);
         }
 
-        /* ▲▲▲ 修改部分 - 新增摘要和图片样式 ▲▲▲ */
+        .paper-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+            transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.25s ease;
+        }
+
+        .paper-item:hover .paper-details {
+            max-height: 1200px;
+            opacity: 1;
+            margin-top: 8px;
+            pointer-events: auto;
+        }
+
+        .pdf-link {
+            color: var(--amber);
+            margin-left: 0;
+            font-weight: 600;
+        }
+
+        .pdf-link:hover {
+            color: #ffd18b;
+        }
+
         .paper-abstract {
-            background: #252525;
+            background: rgba(0, 0, 0, 0.18);
             padding: 15px;
             margin: 12px 0;
-            border-radius: 6px;
-            border-left: 3px solid #3498db;
+            border-radius: var(--radius);
+            border-left: 3px solid var(--line-strong);
+            color: var(--muted);
             font-size: 0.95em;
         }
 
         .paper-image {
             width: 100%;
-            max-width: 400px;
+            max-width: 460px;
             margin: 15px 0;
-            border-radius: 6px;
-            border: 1px solid #404040;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
         .doi-link {
-            color: #5dade2;
+            color: var(--blue);
             text-decoration: none;
             position: relative;
         }
@@ -140,7 +282,7 @@
             height: 2px;
             bottom: -2px;
             left: 0;
-            background: #5dade2;
+            background: var(--blue);
             transition: width 0.3s;
         }
 
@@ -148,174 +290,318 @@
             width: 100%;
         }
 
-        /* 响应式设计 */
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            .profile-img {
-                width: 100px;
-                height: 100px;
-            }
-            .section {
-                padding: 18px;
-            }
+        .wechat-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--blue);
+            text-decoration: none;
         }
-        /* ▲▲▲ 新增视频样式 ▲▲▲ */
+
+        .wechat-link:hover {
+            color: var(--blue-strong);
+            text-decoration: underline;
+        }
+
+        .wechat-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            background: #ffffff;
+            object-fit: cover;
+            vertical-align: middle;
+        }
+
         .video-list {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .video-item {
-            margin: 25px 0;
+            margin: 14px 0;
             padding: 20px;
-            background: #2d2d2d;
-            border-radius: 8px;
-            border-left: 4px solid #5dade2;
+            background: var(--panel-soft);
+            border-radius: var(--radius);
+            border-left: 3px solid var(--blue);
         }
 
         .science-video {
             width: 100%;
-            max-width: 300px;
+            max-width: 520px;
+            display: block;
             margin: 15px 0;
-            border-radius: 6px;
+            border-radius: var(--radius);
             overflow: hidden;
+            background: #111111;
         }
 
         .video-description {
-            background: #252525;
+            background: rgba(0, 0, 0, 0.18);
             padding: 12px;
             margin: 10px 0;
-            border-radius: 4px;
+            border-radius: var(--radius);
             font-size: 0.95em;
             line-height: 1.5;
         }
-        /* ▲▲▲ 新增标注样式 ▲▲▲ */
+
+        .article-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .article-item {
+            margin: 12px 0;
+            padding: 16px 18px;
+            background: var(--panel-soft);
+            border-left: 3px solid var(--amber);
+            border-radius: var(--radius);
+        }
+
+        .article-item p {
+            margin: 8px 0 0 0;
+            color: var(--muted);
+            font-size: 0.95em;
+        }
+
         .paper-badge {
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 15px;
-            margin: -8px 0 10px 0;
-            font-size: 0.85em;
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin: 0 0 10px 0;
+            font-size: 0.78rem;
             font-weight: 500;
-            color: #e0e0e0;
-            letter-spacing: 0.5px;
+            color: var(--text);
+            letter-spacing: 0;
             transition: opacity 0.3s;
         }
+
+        .meta-line {
+            color: var(--muted);
+        }
+
+        .contact-note {
+            color: var(--blue-strong);
+            margin-top: 10px;
+        }
+
+        @media (hover: none) {
+            .paper-details {
+                max-height: none;
+                opacity: 1;
+                margin-top: 8px;
+                pointer-events: auto;
+            }
+        }
+
+        @media (max-width: 720px) {
+            body {
+                padding: 22px 14px 36px;
+            }
+
+            .header {
+                grid-template-columns: 1fr;
+                gap: 22px;
+                min-height: auto;
+                padding: 22px 0 32px;
+                text-align: left;
+            }
+
+            .profile-img {
+                width: 112px;
+                height: 112px;
+            }
+
+            .section {
+                padding: 20px;
+                margin: 16px 0;
+            }
+
+            .paper-item,
+            .video-item,
+            .article-item {
+                padding: 15px;
+            }
+
+            .paper-title-link {
+                font-size: 1.04rem;
+            }
+
+            .science-video,
+            .paper-image {
+                max-width: 100%;
+            }
+        }
+
         @media (max-width: 600px) {
             .paper-badge {
                 font-size: 0.75em;
                 padding: 3px 10px;
             }
         }
-        @media (max-width: 600px) {
-        .science-video {
-            max-width: 100%;
-            height: 200px;  /* 移动端高度进一步缩小 */
-        }
-        }
 
     </style>
 </head>
 <body>
-    <!-- 正文内容保持不变 -->
     <header class="header">
-        <img src="images/myphoto.jpg" alt="yangmingzhe" class="profile-img">
-        <h1>杨明哲</h1>
-        <h1>Mingzhe Yang</h1>
-        <p>北京师范大学系统科学学院 硕士</p>
-        <p>M.S. Candidate in Systems Science</p>
-        <p>School of Systems Science, Beijing Normal University</p>
+        <div>
+            <img src="images/myphoto.jpg" alt="yangmingzhe" class="profile-img">
+        </div>
+        <div>
+            <p class="eyebrow">Academic Homepage</p>
+            <h1>杨明哲<span class="name-en">Mingzhe Yang</span></h1>
+            <p class="intro">Complex systems, causal emergence, and information-theoretic approaches to scientific discovery.</p>
+            <div class="affiliation">
+                <p>北京师范大学系统科学学院 硕士</p>
+                <p>M.S. Candidate in Systems Science</p>
+                <p>School of Systems Science, Beijing Normal University</p>
+            </div>
+            <div class="quick-links">
+                <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=U5Bc5M4AAAAJ" class="quick-link">Google Scholar</a>
+                <a href="mailto:ymp66393866@163.com" class="quick-link">Email</a>
+                <a href="images/wechat.jpg" class="quick-link">微信公众号</a>
+            </div>
+        </div>
     </header>
 
     <section class="section">
-        <h2>📖 研究领域 / Research Areas</h2>
+        <h2>研究领域 <span class="section-subtitle">Research Areas</span></h2>
         <p>Complex System, Causal Emergence, Information Science</p>
-        <h2>领域关键词（集智百科词条）</h2>
-        <a href="https://wiki.swarma.org/index.php/%E5%9B%A0%E6%9E%9C%E6%B6%8C%E7%8E%B0" class="paper-title-link">因果涌现 / Causal Emergence </a> <br>
-        <a href="https://wiki.swarma.org/index.php/%E6%9C%89%E6%95%88%E4%BF%A1%E6%81%AF" class="paper-title-link">有效信息 / Effective Information </a> <br>
-        <a href="https://wiki.swarma.org/index.php/%E8%AE%A1%E7%AE%97%E5%8A%9B%E5%AD%A6" class="paper-title-link">计算力学 / Computational Mechanics </a> <br>
-        <a href="https://wiki.swarma.org/index.php/%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E9%93%BE" class="paper-title-link">马尔科夫链 / Markov chain </a> <br>
-        <a href="https://wiki.swarma.org/index.php/NIS%2B" class="paper-title-link">神经信息压缩机plus / NIS+ </a>
+        <div class="tag-list" aria-label="领域关键词（集智百科词条）">
+            <a href="https://wiki.swarma.org/index.php/%E5%9B%A0%E6%9E%9C%E6%B6%8C%E7%8E%B0" class="tag">因果涌现 / Causal Emergence</a>
+            <a href="https://wiki.swarma.org/index.php/%E6%9C%89%E6%95%88%E4%BF%A1%E6%81%AF" class="tag">有效信息 / Effective Information</a>
+            <a href="https://wiki.swarma.org/index.php/%E9%83%A8%E5%88%86%E4%BF%A1%E6%81%AF%E5%88%86%E8%A7%A3" class="tag">部分信息分解 / Information Decomposition</a>
+            <a href="https://wiki.swarma.org/index.php/%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E9%93%BE" class="tag">马尔科夫链 / Markov chain</a>
+            <a href="https://wiki.swarma.org/index.php/NIS%2B" class="tag">神经信息压缩机plus / NIS+</a>
+        </div>
     </section>
 
     <section class="section">
-        <h2>📚 学术论文 / Academic Publications</h2>
+        <h2>学术论文 <span class="section-subtitle">Academic Publications</span></h2>
         <ul class="paper-list">
             <li class="paper-item">
-                <div class="paper-badge" style="background: rgba(52,152,219,0.15);border:1px solid #3498db;">
-                    🏆 个人代表作 / Most Significant Work
+                <div class="paper-badge" style="background: rgba(255,180,84,0.12);border:1px solid #ffb454;">
+                    正在打磨的工作 / Work in Progress
+                </div>  <br>
+                <a href="https://doi.org/10.48550/arXiv.2605.03267" class="paper-title-link">Partial Effective Information Decomposition for Synergistic Causality</a> <br>
+                <strong>Mingzhe Yang</strong>, Shuo Wang, Jiang Zhang<br>
+                <em>Arxiv</em>, 2026.<br>
+                <div class="paper-details">
+                    <img src="images/peid_boolean_networks.png" alt="PEID Boolean network topologies and effective information comparison" class="paper-image">
+                    <div class="paper-abstract">
+                        Causality is a central topic in scientific inquiry, yet for complex systems, the identification and analysis of synergistic causation remain a challenging and fundamental problem. In the context of causal relations among multivariate variables, a decomposition framework grounded in interventionist causation is still lacking. To address this gap, this paper proposes Partial Effective Information Decomposition (PEID), a framework that decomposes the influence of multiple source variables on a target variable under maximum-entropy interventions into unique and synergistic information, thereby providing a unified and computable characterization of synergistic causal relations. Theoretically, in the three-variable case, the proposed framework is compatible with the major axioms of Partial Information Decomposition (PID). Empirically, under maximum-entropy interventions, correlations among input variables are removed, causing redundancy to vanish and thereby enabling PEID to compute synergistic relations. Furthermore, based on this framework, it is possible to define causal graphs containing hyperedges as well as downward causation, thus offering a unified toolkit for analyzing cross-scale and multivariate causal mechanisms in complex systems. Finally, applying the framework to a machine-learning-based air quality forecasting task on KnowAir-V2, we demonstrate that PEID can extract interpretable inter-station causal structures from a learned dynamical model. These results suggest that PEID provides a general interventionist information-theoretic tool for analyzing multivariate and synergistic causal mechanisms in complex systems.
+                    </div>
+                </div>
+            </li>
+            <li class="paper-item">
+                <div class="paper-badge" style="background: rgba(93,173,226,0.12);border:1px solid #5dade2;">
+                    个人代表作 / Most Significant Work
                 </div>  <br>         
                 <a href="https://doi.org/10.1093/nsr/nwae279" class="paper-title-link">Finding emergence in data by maximizing effective information</a> <br>
                 <strong>Mingzhe Yang</strong>, Zhipeng Wang, Kaiwei Liu, Yingqi Rong, Bing Yuan, Jiang Zhang<br>
                 <em>National Science Review</em>, 2025.<br>
-                <img src="images/nsr_nisp.jpg" alt="论文图表" class="paper-image">
-                <div class="paper-abstract">
-                    Quantifying emergence and modeling emergent dynamics in a data-driven manner for complex dynamical systems is challenging due to the fact that emergent behaviors cannot be directly captured by micro-level observational data. Thus, it is crucial to develop a framework to identify emergent phenomena and capture emergent dynamics at the macro-level using available data. Inspired by the theory of causal emergence (CE), this paper introduces a machine learning framework to learn macro-dynamics in an emergent latent space and quantify the degree of CE. The framework maximizes effective information, resulting in a macro-dynamics model with enhanced causal effects. Experimental results on simulated and real data demonstrate the effectiveness of the proposed framework. It quantifies degrees of CE effectively under various conditions and reveals distinct influences of different noise types. It can learn a one-dimensional coarse-grained macro-state from functional magnetic resonance imaging data to represent complex neural activities during movie clip viewing. Furthermore, improved generalization to different test environments is observed across all simulation data.
+                <div class="paper-details">
+                    <img src="images/nsr_nisp.jpg" alt="论文图表" class="paper-image">
+                    <div class="paper-abstract">
+                        Quantifying emergence and modeling emergent dynamics in a data-driven manner for complex dynamical systems is challenging due to the fact that emergent behaviors cannot be directly captured by micro-level observational data. Thus, it is crucial to develop a framework to identify emergent phenomena and capture emergent dynamics at the macro-level using available data. Inspired by the theory of causal emergence (CE), this paper introduces a machine learning framework to learn macro-dynamics in an emergent latent space and quantify the degree of CE. The framework maximizes effective information, resulting in a macro-dynamics model with enhanced causal effects. Experimental results on simulated and real data demonstrate the effectiveness of the proposed framework. It quantifies degrees of CE effectively under various conditions and reveals distinct influences of different noise types. It can learn a one-dimensional coarse-grained macro-state from functional magnetic resonance imaging data to represent complex neural activities during movie clip viewing. Furthermore, improved generalization to different test environments is observed across all simulation data.
+                    </div>
+                    <a href="https://mp.weixin.qq.com/s/VhcUtrypPH7JuQjK5FGl3w" class="pdf-link">中文解读 Chinese Version</a>
                 </div>
-                <a href="https://mp.weixin.qq.com/s/VhcUtrypPH7JuQjK5FGl3w" class="pdf-link">中文解读 Chinese Version</a>
+            </li>
+            <li class="paper-item">
+                <div class="paper-badge" style="background: rgba(154,213,157,0.12);border:1px solid #9ad59d;">
+                    观点类文章 / Perspective
+                </div>  <br>
+                <a href="https://doi.org/10.1093/nsr/nwag150" class="paper-title-link">Complex systems science in the AI era: a pivotal paradigm for scientific research</a> <br>
+                <strong>Mingzhe Yang</strong>, Weijie Zhao<br>
+                <em>National Science Review Forum</em>, 2026.<br>
+                <div class="paper-details">
+                    <div class="paper-abstract">
+                        Reductionism has underpinned modern science since the 17th-century Scientific Revolution. This methodology decomposes systems into minimal units and deduces wholes from parts, succeeding across physical, life and social sciences. However, reductionism reveals limits as the scientific frontier shifts from identifying building blocks to understanding how components generate collective behavior. We possess massive data and precise local equations but fail to predict cell fates, financial crises or cognitive emergence in neural networks. Complex systems science, a mid-20th-century discipline exploring the structures, behaviors, evolution and laws of complex systems, integrates with diverse fields to transform scientific paradigms. Rapid AI development triggers this paradigm shift. AI algorithms handle massive data and complex systems, while AI systems themselves constitute complex systems whose progress depends on complex systems science. In this NSR Forum, five researchers discuss the essence of complex systems science and its integration with other disciplines to support a pivotal scientific paradigm shift in the AI era.
+                    </div>
+                </div>
             </li>
             <li class="paper-item">
                 <a href="https://doi.org/10.54963/dtra.v4i3.1492" class="paper-title-link">Quantifying system-environment synergistic information by effective information decomposition</a> <br>
                 <strong>Mingzhe Yang</strong>, Linli Pan, Jiang Zhang<br>
                 <em>Digital Technologies Research and Applications</em>, 2025.<br>
-                <img src="images/flex.jpg" alt="论文图表" class="paper-image">
-                <div class="paper-abstract">
-                    Living systems maintain structural and functional stability while adapting to environmental changes, a capability independent of specific system‑environment states. Existing frameworks, such as self‑organization theory and free energy principles, cannot measure system‑environment interaction at the causal level. In this article, we propose a new causal indicator, Flexibility, to measure a system’s ability to respond to its environment. We construct this indicator based on information theory and interventional operations from causal inference, which implies the indicator depends only on the dynamical causal mechanism. We show this indicator satisfies the axiom system of the partial information decomposition (PID) framework and decomposes into two components, Expansiveness and Introversion, which correspond to different strategic tendencies for environmental adaptation. This decomposition reveals that Flexibility depends on the entanglement between system‑environment variables and noise magnitude. Through experiments on cellular automata (CA), random Boolean networks, and real gene regulatory networks (GRNs), we validate that the indicator identifies the most complex and computationally capable CA (Langton’s parameter at 0.5), while demonstrating that feedback loops carrying important biological functions in GRNs exhibit the highest flexibility. We also find that flexibility peaks at a moderate level of dynamical noise. Furthermore, we combine this framework with machine learning techniques to demonstrate its applicability when the underlying dynamics are unknown.                </div>
+                <div class="paper-details">
+                    <img src="images/flex.jpg" alt="论文图表" class="paper-image">
+                    <div class="paper-abstract">
+                        Living systems maintain structural and functional stability while adapting to environmental changes, a capability independent of specific system‑environment states. Existing frameworks, such as self‑organization theory and free energy principles, cannot measure system‑environment interaction at the causal level. In this article, we propose a new causal indicator, Flexibility, to measure a system’s ability to respond to its environment. We construct this indicator based on information theory and interventional operations from causal inference, which implies the indicator depends only on the dynamical causal mechanism. We show this indicator satisfies the axiom system of the partial information decomposition (PID) framework and decomposes into two components, Expansiveness and Introversion, which correspond to different strategic tendencies for environmental adaptation. This decomposition reveals that Flexibility depends on the entanglement between system‑environment variables and noise magnitude. Through experiments on cellular automata (CA), random Boolean networks, and real gene regulatory networks (GRNs), we validate that the indicator identifies the most complex and computationally capable CA (Langton’s parameter at 0.5), while demonstrating that feedback loops carrying important biological functions in GRNs exhibit the highest flexibility. We also find that flexibility peaks at a moderate level of dynamical noise. Furthermore, we combine this framework with machine learning techniques to demonstrate its applicability when the underlying dynamics are unknown.
+                    </div>
+                </div>
             </li>
             <li class="paper-item">
+                <div class="paper-badge" style="background: rgba(93,173,226,0.12);border:1px solid #5dade2;">
+                    综述类文章 / Review
+                </div>  <br>
                 <a href="https://doi.org/10.3390/e26020108" class="paper-title-link">Emergence and Causality in Complex Systems: A Survey of Causal Emergence and Related Quantitative Studies</a> <br>
                 Bing Yuan, Jiang Zhang, Aobo Lyu, Jiayun Wu, Zhipeng Wang, <strong>Mingzhe Yang</strong>, Kaiwei Liu, Muyun Mou, Peng Cui <br>
                 <em>Entropy</em>, 2024.<br>
-                <img src="images/entropy_review.jpg" alt="论文图表" class="paper-image">
-                <div class="paper-abstract">
-                    Emergence and causality are two fundamental concepts for understanding complex systems. They are interconnected. On one hand, emergence refers to the phenomenon where macroscopic properties cannot be solely attributed to the cause of individual properties. On the other hand, causality can exhibit emergence, meaning that new causal laws may arise as we increase the level of abstraction. Causal emergence (CE) theory aims to bridge these two concepts and even employs measures of causality to quantify emergence. This paper provides a comprehensive review of recent advancements in quantitative theories and applications of CE. It focuses on two primary challenges: quantifying CE and identifying it from data. The latter task requires the integration of machine learning and neural network techniques, establishing a significant link between causal emergence and machine learning. We highlight two problem categories: CE with machine learning and CE for machine learning, both of which emphasize the crucial role of effective information (EI) as a measure of causal emergence. The final section of this review explores potential applications and provides insights into future perspectives.               
+                <div class="paper-details">
+                    <img src="images/entropy_review.jpg" alt="论文图表" class="paper-image">
+                    <div class="paper-abstract">
+                        Emergence and causality are two fundamental concepts for understanding complex systems. They are interconnected. On one hand, emergence refers to the phenomenon where macroscopic properties cannot be solely attributed to the cause of individual properties. On the other hand, causality can exhibit emergence, meaning that new causal laws may arise as we increase the level of abstraction. Causal emergence (CE) theory aims to bridge these two concepts and even employs measures of causality to quantify emergence. This paper provides a comprehensive review of recent advancements in quantitative theories and applications of CE. It focuses on two primary challenges: quantifying CE and identifying it from data. The latter task requires the integration of machine learning and neural network techniques, establishing a significant link between causal emergence and machine learning. We highlight two problem categories: CE with machine learning and CE for machine learning, both of which emphasize the crucial role of effective information (EI) as a measure of causal emergence. The final section of this review explores potential applications and provides insights into future perspectives.
+                    </div>
+                    <a href="https://mp.weixin.qq.com/s/U3Ccf6PUpZm5Tz1K4sfICw" class="pdf-link">中文解读 Chinese Version</a>
                 </div>
-                <a href="https://mp.weixin.qq.com/s/U3Ccf6PUpZm5Tz1K4sfICw" class="pdf-link">中文解读 Chinese Version</a>
             </li>
             <li class="paper-item">
                 <a href="https://www.nature.com/articles/s44260-025-00028-0" class="paper-title-link">Dynamical Reversibility and a New Theory of Causal Emergence based on SVD</a> <br>
                 Jiang Zhang, Ruyi Tao, Keng Hou Leong, <strong>Mingzhe Yang</strong>, Bing Yuan<br>
                 <em>npj Complexity</em>, 2025.<br>
-                <img src="images/npj_svd.jpg" alt="论文图表" class="paper-image">
-                <div class="paper-abstract">
-                    The theory of causal emergence (CE) with effective information (EI) posits that complex systems can exhibit CE, where macro-dynamics show stronger causal effects than micro-dynamics. A key challenge of this theory is its dependence on coarse-graining method. In this paper, we introduce a fresh concept of approximate dynamical reversibility derived from the singular value decomposition(SVD) of the Markov chain and establish a novel framework for CE based on this. We find that the essence of CE lies in the presence of redundancy, represented by irreversible and correlated information pathways within the Markov dynamics. Therefore, CE can be quantified as the potential maximal efficiency increase for dynamical reversibility or information transmission. We also demonstrate a strong correlation between the approximate dynamical reversibility and EI, establishing an equivalence between the SVD and EI maximization frameworks for quantifying CE, supported by theoretical insights and numerical examples from Boolean networks, cellular automata, and complex networks. Importantly, our SVD-based CE framework is independent of specific coarse-graining techniques and effectively captures the fundamental characteristics of the dynamics.                
+                <div class="paper-details">
+                    <img src="images/npj_svd.jpg" alt="论文图表" class="paper-image">
+                    <div class="paper-abstract">
+                        The theory of causal emergence (CE) with effective information (EI) posits that complex systems can exhibit CE, where macro-dynamics show stronger causal effects than micro-dynamics. A key challenge of this theory is its dependence on coarse-graining method. In this paper, we introduce a fresh concept of approximate dynamical reversibility derived from the singular value decomposition(SVD) of the Markov chain and establish a novel framework for CE based on this. We find that the essence of CE lies in the presence of redundancy, represented by irreversible and correlated information pathways within the Markov dynamics. Therefore, CE can be quantified as the potential maximal efficiency increase for dynamical reversibility or information transmission. We also demonstrate a strong correlation between the approximate dynamical reversibility and EI, establishing an equivalence between the SVD and EI maximization frameworks for quantifying CE, supported by theoretical insights and numerical examples from Boolean networks, cellular automata, and complex networks. Importantly, our SVD-based CE framework is independent of specific coarse-graining techniques and effectively captures the fundamental characteristics of the dynamics.
+                    </div>
+                    <a href="https://mp.weixin.qq.com/s/r46w4_XcdIVwygqq_zfofg" class="pdf-link">中文解读 Chinese Version</a>
                 </div>
-                <a href="https://mp.weixin.qq.com/s/r46w4_XcdIVwygqq_zfofg" class="pdf-link">中文解读 Chinese Version</a>
             </li>
             <li class="paper-item">
                 <a href="https://doi.org/10.1016/j.matcom.2023.09.017" class="paper-title-link">Stability analysis of HCV dynamic model with saturation incidence, cellular immunity and interferon effect in intrahepatic and extrahepatic tissues</a> <br>
                 Bin Yu, Jin Shi, Zeyu Xue, <strong>Mingzhe Yang</strong>, Xue Yang, Yongmei Su <br>
                 <em>Mathematics and Computers in Simulation</em>, 2024.<br>
-                <img src="images/HCV.jpg" alt="论文图表" class="paper-image">
-                <div class="paper-abstract">
-                    An HCV model with saturation incidence and cellular immunity is constructed and analyzed. The model takes account of both intrahepatic and extrahepatic tissues and the effect of antiviral drugs especially the interferon. The basic reproduction number R 01 and CTL immune reproduction number R 02 are calculated, respectively. The existence of three equilibria, namely infection-free, immune response-free, infection-immune coexistence equilibrium is analyzed with a novel method. Stability analysis is also given with corresponding reproduction number, and the results show that when R 01 < 1, there are no virus and immune response existed in the end; when R 02 < 1 < R 01, the virus survives, but immune response gradually disappears; when R 02 > 1, the system will be globally stable with both virus and immune response existing. Numerical analysis is also given which is consistent with the theoretical analysis.                
+                <div class="paper-details">
+                    <img src="images/HCV.jpg" alt="论文图表" class="paper-image">
+                    <div class="paper-abstract">
+                        An HCV model with saturation incidence and cellular immunity is constructed and analyzed. The model takes account of both intrahepatic and extrahepatic tissues and the effect of antiviral drugs especially the interferon. The basic reproduction number R 01 and CTL immune reproduction number R 02 are calculated, respectively. The existence of three equilibria, namely infection-free, immune response-free, infection-immune coexistence equilibrium is analyzed with a novel method. Stability analysis is also given with corresponding reproduction number, and the results show that when R 01 < 1, there are no virus and immune response existed in the end; when R 02 < 1 < R 01, the virus survives, but immune response gradually disappears; when R 02 > 1, the system will be globally stable with both virus and immune response existing. Numerical analysis is also given which is consistent with the theoretical analysis.
+                    </div>
+                </div>
+            </li>
+            <li class="paper-item">
+                <a href="https://doi.org/10.1103/mfct-sxn5" class="paper-title-link">Singular-value-decomposition-based causal emergence for Gaussian iterative systems</a> <br>
+                Kaiwei Liu, Linli Pan, Zhipeng Wang, <strong>Mingzhe Yang</strong>, Bing Yuan, Jiang Zhang<br>
+                <em>Physical Review E</em>, 2025.<br>
+                <div class="paper-details">
+                    <img src="images/svd_gis.jpg" alt="论文图表" class="paper-image">
+                    <div class="paper-abstract">
+                        Causal emergence (CE) based on effective information (EI) shows that macro-states can exhibit stronger causal effects than micro-states in dynamics. However, the identification of CE and the maximization of EI both rely on coarse-graining strategies, which is a key challenge. A recently proposed CE framework based on approximate dynamical reversibility utilizing singular value decomposition (SVD) is independent of coarse-graining but is limited to transition probability matrices (TPM) in discrete states. To address this problem, this article proposes a pioneering CE quantification framework for Gaussian iterative systems (GIS), based on approximate dynamical reversibility derived from the SVD of covariance matrices in forward and backward dynamics. The positive correlation between SVD-based and EI-based CE, along with the equivalence condition, are given analytically. After that, we can provide precise coarse-graining strategies directly from singular value spectrums and orthogonal matrices. This new framework can be applied to any dynamical system with continuous states and Gaussian noise, such as auto-regressive growth models, Markov Gaussian systems, and even SIR modeling by neural networks (NN). Numerical simulations on typical cases validate our theory and offer a new approach to studying the CE phenomenon, emphasizing noise and covariance over dynamical functions in both known models and machine learning.
+                    </div>
                 </div>
             </li>
             <li class="paper-item">
                 <a href="https://doi.org/10.48550/arXiv.2509.10891" class="paper-title-link">Causal Emergence of Consciousness through Learned Multiscale Neural Dynamics in Mice</a> <br>
                 Zhipeng Wang, Yingqi Rong, Kaiwei Liu, <strong>Mingzhe Yang</strong>, Jiang Zhang, Jing He <br>
                 <em>Arxiv</em>, 2025.<br>
-                <img src="images/mice_brain.jpg" alt="论文图表" class="paper-image">
-                <div class="paper-abstract">
-                    Consciousness spans macroscopic experience and microscopic neuronal activity, yet linking these scales remains challenging. Prevailing theories, such as Integrated Information Theory, focus on a single scale, overlooking how causal power and its dynamics unfold across scales. Progress is constrained by scarce cross-scale data and difficulties in quantifying multiscale causality and dynamics. Here, we present a machine learning framework that infers multiscale causal variables and their dynamics from near-cellular-resolution calcium imaging in the mouse dorsal cortex. At lower levels, variables primarily aggregate input-driven information, whereas at higher levels they realize causality through metastable or saddle-point dynamics during wakefulness, collapsing into localized, stochastic dynamics under anesthesia. A one-dimensional top-level conscious variable captures the majority of causal power, yet variables across other scales also contribute substantially, giving rise to high emergent complexity in the conscious state. Together, these findings provide a multiscale causal framework that links neural activity to conscious states.                </div>
-            </li>
-            <li class="paper-item">
-                <a href="https://doi.org/10.48550/arXiv.2502.08261" class="paper-title-link">SVD-based Causal Emergence for Gaussian Iterative Systems</a> <br>
-                Kaiwei Liu, Linli Pan, Zhipeng Wang, <strong>Mingzhe Yang</strong>, Bing Yuan, Jiang Zhang
-                <em>Arxiv</em>, 2025.<br>
-                <img src="images/svd_gis.jpg" alt="论文图表" class="paper-image">
-                <div class="paper-abstract">
-                    Causal emergence (CE) based on effective information (EI) shows that macro-states can exhibit stronger causal effects than micro-states in dynamics. However, the identification of CE and the maximization of EI both rely on coarse-graining strategies, which is a key challenge. A recently proposed CE framework based on approximate dynamical reversibility utilizing singular value decomposition (SVD) is independent of coarse-graining but is limited to transition probability matrices (TPM) in discrete states. To address this problem, this article proposes a pioneering CE quantification framework for Gaussian iterative systems (GIS), based on approximate dynamical reversibility derived from the SVD of covariance matrices in forward and backward dynamics. The positive correlation between SVD-based and EI-based CE, along with the equivalence condition, are given analytically. After that, we can provide precise coarse-graining strategies directly from singular value spectrums and orthogonal matrices. This new framework can be applied to any dynamical system with continuous states and Gaussian noise, such as auto-regressive growth models, Markov Gaussian systems, and even SIR modeling by neural networks (NN). Numerical simulations on typical cases validate our theory and offer a new approach to studying the CE phenomenon, emphasizing noise and covariance over dynamical functions in both known models and machine learning.                </div>
+                <div class="paper-details">
+                    <img src="images/mice_brain.jpg" alt="论文图表" class="paper-image">
+                    <div class="paper-abstract">
+                        Consciousness spans macroscopic experience and microscopic neuronal activity, yet linking these scales remains challenging. Prevailing theories, such as Integrated Information Theory, focus on a single scale, overlooking how causal power and its dynamics unfold across scales. Progress is constrained by scarce cross-scale data and difficulties in quantifying multiscale causality and dynamics. Here, we present a machine learning framework that infers multiscale causal variables and their dynamics from near-cellular-resolution calcium imaging in the mouse dorsal cortex. At lower levels, variables primarily aggregate input-driven information, whereas at higher levels they realize causality through metastable or saddle-point dynamics during wakefulness, collapsing into localized, stochastic dynamics under anesthesia. A one-dimensional top-level conscious variable captures the majority of causal power, yet variables across other scales also contribute substantially, giving rise to high emergent complexity in the conscious state. Together, these findings provide a multiscale causal framework that links neural activity to conscious states.
+                    </div>
+                </div>
             </li>
             <li class="paper-item">
                 <a href="https://arxiv.org/abs/2306.08288" class="paper-title-link">System Information Decomposition</a> <br>
                 Aobo Lyu, Bing Yuan, Ou Deng, <strong>Mingzhe Yang</strong>, Jiang Zhang <br>
                 <em>Arxiv</em>, 2023.<br>
-                <img src="images/SID.jpg" alt="论文图表" class="paper-image">
-                <div class="paper-abstract">
-                    To characterize the complex higher-order interactions among variables within a system, this study introduces a novel framework, termed System Information Decomposition (SID), aimed at decomposing the information entropy of variables into information atoms based on their interrelations. Diverging from the established Partial Information Decomposition (PID) framework, which predominantly concentrates on the directional interactions stemming from an array of source variables to a single target variable, SID adopts a holistic approach, scrutinizing the interactions across all variables within the system. Specifically, we proved all the information atoms are symmetric, which means the disentanglement of unique, redundant, and synergistic information from any specific target variable. Hence, our proposed SID framework can capture the symmetric pairwise and higher-order relationships among variables. This advance positions SID as a promising framework with the potential to foster a deeper understanding of higher-order relationships within complex systems across disciplines.                
+                <div class="paper-details">
+                    <img src="images/SID.jpg" alt="论文图表" class="paper-image">
+                    <div class="paper-abstract">
+                        To characterize the complex higher-order interactions among variables within a system, this study introduces a novel framework, termed System Information Decomposition (SID), aimed at decomposing the information entropy of variables into information atoms based on their interrelations. Diverging from the established Partial Information Decomposition (PID) framework, which predominantly concentrates on the directional interactions stemming from an array of source variables to a single target variable, SID adopts a holistic approach, scrutinizing the interactions across all variables within the system. Specifically, we proved all the information atoms are symmetric, which means the disentanglement of unique, redundant, and synergistic information from any specific target variable. Hence, our proposed SID framework can capture the symmetric pairwise and higher-order relationships among variables. This advance positions SID as a promising framework with the potential to foster a deeper understanding of higher-order relationships within complex systems across disciplines.
+                    </div>
                 </div>
             </li>
             <!-- 添加更多论文 -->
@@ -323,48 +609,141 @@
     </section>
     <!-- 在学术论文section之后添加视频栏目 -->
     <section class="section">
-        <h2>🎥 科普视频 / Science Videos</h2>
+        <h2>科普视频 <span class="section-subtitle">Science Videos</span></h2>
         <ul class="video-list">
             <li class="video-item">
                 <a href="https://mp.weixin.qq.com/s/vMHpNBNQ2Q1QalubSdVvnw" class="doi-link">什么是涌现 / What is Emergence</a>
+                <video class="science-video" controls preload="metadata">
+                    <source src="images/emergence.mp4" type="video/mp4">
+                    您的浏览器不支持 HTML5 视频播放。
+                </video>
             </li>
             <li class="video-item">
                 <a href="https://mp.weixin.qq.com/s/d34rRHXTffBa1_yjWqIfxA" class="doi-link">什么是混沌边缘 / Edge of Chaos</a>
+                <video class="science-video" controls preload="metadata">
+                    <source src="images/edgeofchaos.mp4" type="video/mp4">
+                    您的浏览器不支持 HTML5 视频播放。
+                </video>
             </li>
             <li class="video-item">
                 <a href="https://weixin.qq.com/sph/AiYXCF5Ta" class="doi-link">机器观察者识别涌现 / Recognizing Emergence with Machine Observers(NIS+)</a>
             </li>
         </ul>
     </section>
+
+    <section class="section">
+        <h2>微信公众号文章 <span class="section-subtitle">Essays and Public Writing</span></h2>
+        <ul class="article-list">
+            <li class="article-item">
+                <a href="https://m.huxiu.com/article/4843505.html" class="doi-link">AI时代的复杂系统科学：为科学研究提供普适范式</a>
+                <p>从还原论的局限出发，讨论复杂系统科学如何在AI时代为跨学科科学研究提供新的普适范式。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://m.thepaper.cn/newsDetail_forward_33096918" class="doi-link">集智百科：跨临界分岔｜黄芸、杨明哲</a>
+                <p>介绍跨临界分岔的历史、标准型、稳定性交换机制及其在激光模型中的典型意义。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=64213" class="doi-link">多重分形分析，理解大模型涌现的新路径</a>
+                <p>介绍多重分形分析如何刻画大语言模型内部结构变化，为理解大模型涌现能力提供复杂系统视角。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=61034" class="doi-link">计算力学、闭合圈与涌现</a>
+                <p>围绕层次涌现、信息闭合与因果闭合，解读计算方法如何刻画自然系统中的层级结构。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=60741" class="doi-link">大语言模型的涌现｜集智百科</a>
+                <p>系统梳理大语言模型涌现现象的历史、争议、结构机制与复杂系统解释框架。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=60150" class="doi-link">涌现何时发生？机器观察者可以像人类一样识别涌现吗？</a>
+                <p>介绍课题组关于量化涌现与机器观察者的研究，讨论如何用学习系统识别涌现发生。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=57845" class="doi-link">一个统一的视角理解：计算力学、因果抽象和信息分解</a>
+                <p>从个人学习脉络出发，串联计算力学、因果抽象与信息分解三个复杂系统研究方向。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=57578" class="doi-link">范畴论视角：因果律与多尺度的相遇</a>
+                <p>以范畴论语言重述因果模型，讨论机制视角下的因果关系与多尺度抽象问题。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=56588" class="doi-link">计算力学（因果态理论）｜集智百科</a>
+                <p>介绍因果态、统计复杂度、香农熵率与预测机器等计算力学核心概念。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=56457" class="doi-link">因果律是客观存在的法则，还是感知的幻象？</a>
+                <p>从哲学与科学史切入，梳理因果观念从四因说到现代因果科学的发展。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=54930" class="doi-link">自组织临界：为什么大规模灾难频繁发生，且难以预测？</a>
+                <p>借助沙堆模型与自组织临界理论，解释灾难、传播和复杂系统中幂律现象的来源。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=54750" class="doi-link">Tononi vs Seth：意识研究，应当遵从内在视角还是观察者视角？</a>
+                <p>围绕整合信息论与观察者视角，讨论意识科学中的内在体验、测量与解释分歧。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=50384" class="doi-link">混沌边缘的信息动力学——复杂系统研究中的信息论终篇</a>
+                <p>作为信息动力学系列终篇，讨论复杂网络、生物系统和临界相变中的信息存储与转移。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=49271" class="doi-link">三种信息动力学：如何识别元胞自动机中的涌现？</a>
+                <p>介绍信息存储、信息转移和信息修正三类局部信息指标，解释元胞自动机中的涌现斑图。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=48850" class="doi-link">集智科学研究中心重磅综述：复杂系统中的因果和涌现</a>
+                <p>介绍复杂系统中因果与涌现的综述工作，概览因果涌现及相关定量研究的核心问题。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=48200" class="doi-link">AI何以涌现：复杂适应系统视角的ChatGPT和大语言模型</a>
+                <p>从复杂适应系统角度分析ChatGPT与大语言模型，讨论规模法则、涌现与AI辅助复杂系统研究。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=48090" class="doi-link">复杂系统研究为什么关注信息论？</a>
+                <p>解读分布式计算的局部信息动力学，说明信息论为何是理解复杂系统计算与涌现的重要语言。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=47877" class="doi-link">从分解到整合：整合信息分解框架</a>
+                <p>介绍从部分信息分解到整合信息分解的理论脉络，解释如何拆解复杂系统中的多变量信息动力学。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=46157" class="doi-link">Entropy 因果与复杂系统特刊：从自上而下因果到闪烁涌现</a>
+                <p>围绕因果与复杂系统特刊，梳理自上而下因果、闪烁涌现、机器学习与信息论相关前沿工作。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=45629" class="doi-link">计算力学：量化涌现的又一条路径</a>
+                <p>解读James Crutchfield的计算力学思想，介绍因果态、统计复杂度与层次机器重构。</p>
+            </li>
+            <li class="article-item">
+                <a href="https://swarma.org/?p=37410" class="doi-link">因果一致性：因果与多尺度的碰撞</a>
+                <p>解读结构因果模型中的因果一致性，讨论多尺度系统中宏观与微观描述如何相互对应。</p>
+            </li>
+        </ul>
+    </section>
     
 
     <section class="section">
-        <h2>📧 联系方式 / Contact</h2>
+        <h2>联系方式 <span class="section-subtitle">Contact</span></h2>
         <p>e-mail: ymp66393866@163.com</p>
         <p>Google Scholar: 
-            <a href="https://scholar.google.com/citations?hl=zh-CN&user=U5Bc5M4AAAAJ" class="doi-link">个人主页 Profile</a>
+            <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=U5Bc5M4AAAAJ" class="doi-link">个人主页 Profile</a>
+        </p>
+        <p>
+            微信公众号：
+            <a href="images/wechat.jpg" class="wechat-link" target="_blank" rel="noopener">
+                <img src="images/wechat.jpg" alt="哲思世界微信公众号二维码" class="wechat-icon">
+                哲思世界
+            </a>，欢迎关注我的个人公众号。
         </p>
         <br>
         <p>请不要在我身后，因为我不会引领；<br>
            也不要在我前面，因为我不会追随；<br>
            请在我的身边，成为我的同伴</p>
-        <p style="color: #7fb3d5; margin-top: 10px;">
+        <p class="contact-note">
             Don't stand behind me, for I won't lead;<br>
             Don't stand before me, for I won't follow;<br>
             Stand beside me, and be my companion</p>
     </section>
 
-    <script>
-        // 增强交互效果
-        document.querySelectorAll('.paper-item').forEach(item => {
-            item.addEventListener('mouseover', () => {
-                item.style.transform = 'translateX(10px)';
-            });
-            item.addEventListener('mouseout', () => {
-                item.style.transform = 'none';
-            });
-        });
-    </script>
 </body>
 </html>
-
