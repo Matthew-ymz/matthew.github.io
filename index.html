@@ -329,7 +329,7 @@
         .video-cover-link {
             position: relative;
             width: 100%;
-            max-width: 520px;
+            max-width: 420px;
             display: block;
             margin: 15px 0;
             border-radius: var(--radius);
@@ -346,7 +346,7 @@
         .video-cover {
             display: block;
             width: 100%;
-            aspect-ratio: 9 / 16;
+            height: 260px;
             object-fit: cover;
             object-position: center;
             transition: transform 0.25s ease;
@@ -467,6 +467,10 @@
             .video-cover-link,
             .paper-image {
                 max-width: 100%;
+            }
+
+            .video-cover {
+                height: 210px;
             }
         }
 
